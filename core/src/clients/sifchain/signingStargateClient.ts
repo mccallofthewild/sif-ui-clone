@@ -22,7 +22,7 @@ import {
   SigningStargateClientOptions,
   StdFee,
 } from "@cosmjs/stargate";
-import { HttpEndpoint, Tendermint34Client } from "@cosmjs/tendermint-rpc";
+import { Tendermint34Client } from "@cosmjs/tendermint-rpc";
 import { TxRaw } from "cosmjs-types/cosmos/tx/v1beta1/tx";
 import * as clpTx from "../../generated/proto/sifnode/clp/v1/tx";
 import * as dispensationTx from "../../generated/proto/sifnode/dispensation/v1/tx";
@@ -84,7 +84,7 @@ export const createDefaultRegistry = () => {
 
 export class SifSigningStargateClient extends SigningStargateClient {
   static override async connectWithSigner(
-    endpoint: string | HttpEndpoint,
+    endpoint: string,
     signer: OfflineSigner,
     options: SigningStargateClientOptions = {},
   ) {

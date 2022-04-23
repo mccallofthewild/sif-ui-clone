@@ -16,6 +16,7 @@ import { isBroadcastTxFailure } from "@cosmjs/launchpad";
 /* 
 
   INSTRUCTIONS: 
+  0. *Insert legal disclaimer that you can't sue me*
   1. use node 16. maybe you can use 14. idk. use nvm.
   2. `yarn install` from root directory 
   2.5. wait for the average lifespan of a mayfly while you download a bunch of stuff you won't use 
