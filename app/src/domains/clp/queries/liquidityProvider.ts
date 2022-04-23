@@ -43,7 +43,7 @@ export const useLiquidityProviderQuery = (
       );
 
       const liquidityProvider =
-        await sifchainClients.clpQueryClient.GetLiquidityProvider({
+        await sifchainClients.queryClient.clp.GetLiquidityProvider({
           lpAddress: walletAddress,
           symbol: externalAssetTokenEntry.value?.denom ?? "",
         });
@@ -109,7 +109,7 @@ export const useLiquidityProvidersQuery = () => {
         services.chains.get(Network.SIFCHAIN),
       );
       const liquidityProviders =
-        await sifchainClients.clpQueryClient.GetLiquidityProviderData({
+        await sifchainClients.queryClient.clp.GetLiquidityProviderData({
           lpAddress: walletAddress,
         });
 
@@ -126,7 +126,7 @@ export const useLiquidityProvidersQuery = () => {
         liquidityProviderData: liquidityProviders.liquidityProviderData.map(
           (x) => {
             const externalAssetTokenEntry = tokenEntries?.find(
-              (y) => y.baseDenom === x.liquidityProvider?.asset?.symbol,
+              (y) => y.denom === x.liquidityProvider?.asset?.symbol,
             );
             return {
               ...x,
