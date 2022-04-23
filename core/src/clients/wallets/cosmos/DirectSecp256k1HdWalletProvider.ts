@@ -64,7 +64,8 @@ export class DirectSecp256k1HdWalletProvider extends CosmosWalletProvider {
     const wallet = await DirectSecp256k1HdWallet.fromMnemonic(
       this.options.mnemonic || "",
       {
-        hdPaths: [stringToPath(parts.join("/")) as any],
+        // Allow this to default to m/44'/118'/0'/0/0
+        // hdPaths: [stringToPath(parts.join("/")) as any],
         prefix: chainConfig.keplrChainInfo.bech32Config.bech32PrefixAccAddr,
       },
     );
