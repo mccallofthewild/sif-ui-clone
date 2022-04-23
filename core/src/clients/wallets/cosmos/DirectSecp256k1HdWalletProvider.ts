@@ -5,7 +5,11 @@ import { stringToPath } from "@cosmjs/crypto";
 
 import { TxRaw } from "cosmjs-types/cosmos/tx/v1beta1/tx";
 
-import { NativeDexTransaction, NativeDexSignedTransaction } from "../../native";
+import {
+  NativeDexTransaction,
+  NativeDexSignedTransaction,
+  NativeDexClient,
+} from "../../native";
 import { Chain } from "../../../entities";
 import { WalletProviderContext } from "../../wallets/WalletProvider";
 import { TokenRegistry } from "../../native/TokenRegistry";
@@ -86,10 +90,8 @@ export class DirectSecp256k1HdWalletProvider extends CosmosWalletProvider {
     const chainConfig = this.getIBCChainConfig(chain);
     const signer = await this.getSendingSigner(chain);
 
-    const stargate = await SigningStargateClient.connectWithSigner(
-      chainConfig.rpcUrl,
-      signer,
-    );
+    const dexclient = await NativeDexClient.connectByChain(chain);
+    const stargate = await dexclient.createSigningClient(signer);
 
     const signed = await stargate.sign(
       tx.fromAddress,
