@@ -36,7 +36,7 @@ function _Asset(symbol: string): ReadonlyAsset;
 function _Asset(asset: IAsset): ReadonlyAsset;
 function _Asset(assetOrSymbol: IAsset | string): ReadonlyAsset;
 function _Asset(assetOrSymbol: any): ReadonlyAsset {
-  const rawMapString = sessionStorage.getItem(ASSET_MAP_STORAGE_KEY);
+  const rawMapString = null;
   const assetMap = JSON.parse(rawMapString ?? JSON.stringify({})) as Record<
     string,
     ReadonlyAsset
@@ -55,8 +55,6 @@ function _Asset(assetOrSymbol: any): ReadonlyAsset {
       ...assetOrSymbol,
       displaySymbol: assetOrSymbol.displaySymbol || assetOrSymbol.symbol,
     };
-
-    sessionStorage.setItem(ASSET_MAP_STORAGE_KEY, JSON.stringify(assetMap));
 
     return assetOrSymbol;
   }
