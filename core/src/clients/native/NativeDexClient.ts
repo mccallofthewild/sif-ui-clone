@@ -35,10 +35,10 @@ import {
 } from "./NativeDexTransaction";
 import {
   BroadcastTxResult,
-  buildFeeTable,
-  GasPrice,
   isBroadcastTxFailure,
   OfflineSigner as OfflineLaunchpadSigner,
+  buildFeeTable,
+  GasPrice,
 } from "@cosmjs/launchpad";
 import { parseTxFailure } from "../../utils/parseTxFailure";
 import { TransactionStatus, Chain, IBCChainConfig } from "../../";
@@ -51,7 +51,7 @@ type DeepReadonly<T> = T extends object
 
 export class NativeDexClient {
   static feeTable = buildFeeTable(
-    GasPrice.fromString("0.025ucosm"),
+    GasPrice.fromString("1rowan"),
     {
       send: 80000,
       transfer: 250000,
@@ -62,7 +62,16 @@ export class NativeDexClient {
       withdrawRewards: 140000,
       govVote: 250000,
     },
-    {},
+    {
+      send: 80000,
+      transfer: 250000,
+      delegate: 250000,
+      undelegate: 250000,
+      redelegate: 250000,
+      // The gas multiplication per rewards.
+      withdrawRewards: 140000,
+      govVote: 250000,
+    },
   );
   protected constructor(
     private readonly rpcUrl: string,
@@ -246,11 +255,12 @@ export class NativeDexClient {
           msg: any,
           senderAddress: string,
           { gas, price }: NativeDexTransactionFee = {
-            gas: this.feeTable.transfer.gas,
+            // Hardcoded for now
+            gas: "500000",
             // @mccallofthewild - May want to change this to an `AssetAmount` at some point once the SDK structure is ready
             price: {
-              denom: this.feeTable.transfer.amount[0].denom,
-              amount: this.feeTable.transfer.amount[0].amount,
+              denom: "rowan",
+              amount: "100000000000000000",
             },
           },
           memo = "",

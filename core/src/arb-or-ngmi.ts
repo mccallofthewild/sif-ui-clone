@@ -5,6 +5,7 @@ import {
   toBaseUnits,
   IAsset,
   IAssetAmount,
+  Network,
 } from "../src";
 import { DirectSecp256k1HdWalletProvider } from "../src/clients/wallets/cosmos";
 import { Web3WalletProvider } from "../src/clients/wallets/ethereum";
@@ -27,7 +28,7 @@ import { isBroadcastTxFailure } from "@cosmjs/launchpad";
 */
 
 const sdk = createSdk({
-  environment: NetworkEnv.TESTNET,
+  environment: NetworkEnv.MAINNET,
 });
 
 const cosmosWallet = new DirectSecp256k1HdWalletProvider(sdk.context, {
@@ -143,17 +144,17 @@ async function ethBridge(params: BridgeParams) {
 
 async function run() {
   await swap(
-    AssetAmount(sdk.chains.sifchain.forceGetAsset("rowan"), "1000"),
+    AssetAmount(sdk.chains.sifchain.forceGetAsset("rowan"), "10"),
     sdk.chains.sifchain.forceGetAsset("cusdt"),
   );
-  const photon = sdk.chains.cosmoshub.forceGetAsset("uphoton");
-  await ibcBridge({
-    fromChain: sdk.chains.cosmoshub,
-    toChain: sdk.chains.sifchain,
-    assetAmount: AssetAmount(photon, toBaseUnits("1.0", photon)),
-    fromAddress: await cosmosWallet.connect(sdk.chains.cosmoshub),
-    toAddress: await cosmosWallet.connect(sdk.chains.sifchain),
-  });
+  // const photon = sdk.chains.cosmoshub.forceGetAsset("uphoton");
+  // await ibcBridge({
+  //   fromChain: sdk.chains.cosmoshub,
+  //   toChain: sdk.chains.sifchain,
+  //   assetAmount: AssetAmount(photon, toBaseUnits("1.0", photon)),
+  //   fromAddress: await cosmosWallet.connect(sdk.chains.cosmoshub),
+  //   toAddress: await cosmosWallet.connect(sdk.chains.sifchain),
+  // });
 }
 
 run();
