@@ -1,11 +1,6 @@
-import { IAsset, Network } from "../../../entities";
+import { ChainAssetConfig } from "./types";
 
-const assets: {
-  assets: (Omit<IAsset, "homeNetwork" | "network"> & {
-    network: "sifchain";
-    homeNetwork: string;
-  })[];
-} = {
+const assets: ChainAssetConfig = {
   assets: [
     {
       symbol: "rowan",
@@ -685,6 +680,8 @@ const assets: {
       displaySymbol: "UST",
       symbol: "cust",
       homeNetwork: "ethereum",
+      decommissioned: true,
+      decommissionReason: "Temporarily disabled due to Terra instability",
     },
     {
       address: "0x853d955acef822db058eb8505911ed77f175b99e",
@@ -879,6 +876,8 @@ const assets: {
       imageUrl:
         "https://assets.coingecko.com/coins/images/8284/small/luna1557227471663.png?1567147072",
       homeNetwork: "terra",
+      decommissioned: true,
+      decommissionReason: "Temporarily decommissioned due to Terra instability",
     },
     {
       symbol: "uusd",
@@ -890,6 +889,8 @@ const assets: {
       imageUrl:
         "https://assets.coingecko.com/coins/images/12681/small/UST.png?1601612407",
       homeNetwork: "terra",
+      decommissioned: true,
+      decommissionReason: "Temporarily decommissioned due to Terra instability",
     },
     {
       address: "0x05079687d35b93538cbd59fe5596380cae9054a9",
@@ -1070,6 +1071,17 @@ const assets: {
         "https://assets.coingecko.com/coins/images/13722/small/logo-200x200.jpg?1626095888",
     },
     {
+      symbol: "uiov",
+      displaySymbol: "iov",
+      decimals: 6,
+      name: "iov",
+      network: "sifchain",
+      homeNetwork: "starname",
+      label: "iov",
+      imageUrl:
+        "https://assets.coingecko.com/coins/images/12660/small/iov.png?1601862353",
+    },
+    {
       symbol: "eeur",
       displaySymbol: "eeur",
       decimals: 6,
@@ -1079,6 +1091,28 @@ const assets: {
       label: "e-Money EUR",
       imageUrl:
         "https://assets.coingecko.com/coins/images/18817/small/eeur.jpg?1633508407",
+    },
+    {
+      symbol: "aevmos",
+      displaySymbol: "evmos",
+      decimals: 18,
+      name: "EVMOS",
+      network: "sifchain",
+      homeNetwork: "evmos",
+      label: "evmos",
+      imageUrl:
+        "https://assets.coingecko.com/coins/images/24023/small/Evmos_Token_Orange_RGB.png?1651162025",
+    },
+    {
+      symbol: "uscrt",
+      displaySymbol: "scrt",
+      decimals: 6,
+      name: "scrt",
+      network: "sifchain",
+      homeNetwork: "secret",
+      label: "scrt",
+      imageUrl:
+        "https://assets.coingecko.com/coins/images/11871/small/Secret.png?1595520186",
     },
   ],
 };

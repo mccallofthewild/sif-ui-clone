@@ -1,12 +1,51 @@
+## Release 2022.05.12
+
+- Decommission UST and LUNA
+
+## Release 2022.05.09
+
+- Add more information about price impact on Swap's confirmation step
+- Include "pool composition" information to Add Liquidity widget
+
+## Release 2022.05.02
+
+- Fix Terra Station integration
+
+## Release 2022.04.30
+
+- Fix EVMOS chain display decimals
+
+## Release 2022.04.27
+
+- Add EVMOS chain
+
+## Release 2022.04.27
+
+- Add unbonding period disclaimer to relevant components
+- Fix transaction cancellation error on Add Liquidity page
+
+## Release 2022.04.26
+
+- Remove mentions to old rewards programs on `Pool` page
+- Improved remote caching
+
+## Release 2022.04.24
+
+- Fix ethereum imports
+- Temporarily disable adding liquidity asymetrically
+
 ## Release 2022.04.22
+
 - Fix unbonding liquidity
 
 ## Release 2022.04.21
+
 - Fix add liquidity 'Pool Equally' ratio
 - Improved PMTP 'minimum received' estimate based on price impact and slippage
 - Security updates to cosmjs as web3.js
-  
+
 ## Release 2022.04.19
+
 - Sif’s Ascension and PMTP are now live!
 - Rewards will be auto-distributed back into the pools at every block
 - All liquidity is now subject to 7-day unbonding periods
@@ -15,14 +54,15 @@
   - Fix decimal formatting of ibc tokens on 'Unbond liquidity' page
   - Fix decimal formatting of ibc tokens on 'Unbonding request' section on 'Pools' page
   - Remove keplr provider websocket dependency
-  
+
 ## Release 2022.04.06
+
 - Fixed display of individual 'Dispensed rewards' by rewards program
-  
+
 ## Release 2022.04.05
 
 - Fixed display of 'Dispensed rewards' on rewards page
-  
+
 ## Release 2022.04.04
 
 - Fixed issue processing add liquidity transactions
@@ -78,15 +118,16 @@
 ## Release 2021.11.04
 
 - Enabled E-Money
+
   - EEUR
   - NGM
 
-* Sif's Bonus Pool - EEUR:
+- Sif's Bonus Pool - EEUR:
   - Import EEUR
   - Pool EEUR
   - Earn Rowan
 
-## Release 2021.10.29
+## Release 2021.10.29\
 
 - Enabled OH token from oh.finance
 
@@ -95,7 +136,7 @@
 - Enabled Terra via Terra Station Wallet: UST, LUNA
 - Sif's Bonus Pools for UST and LUNA
 
-## Release 2021.10.18
+## Release 2021.10.20
 
 - Enabled OSMO
 - Sif's Bonus Pool - OSMO:

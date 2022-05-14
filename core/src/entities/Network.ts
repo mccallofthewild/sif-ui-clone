@@ -16,6 +16,7 @@ export enum Network {
   SENTINEL = "sentinel",
   TERRA = "terra",
   EMONEY = "emoney",
+  EVMOS = "evmos",
   STARNAME = "starname",
   BITSONG = "bitsong",
   CERBERUS = "cerberus",
@@ -23,4 +24,5 @@ export enum Network {
   CHIHUAHUA = "chihuahua",
   KI = "ki",
   STARGAZE = "stargaze",
+  SECRET = "secret",
 }
